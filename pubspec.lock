@@ -71,7 +71,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "59f000fb056e9d5cefd89fcd120b76a04cdc5ce1"
+      resolved-ref: ec2f2319d64d8d2bbf6f54db7121f06600a9d574
       url: "https://github.com/Marc-R2/com.git"
     source: git
     version: "0.0.1"
