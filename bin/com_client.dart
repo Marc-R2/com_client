@@ -18,11 +18,16 @@ void main(List<String> arguments) async {
 
   print(await com.connectClient());
 
-  final prov = ProviderService(com: com);
+  final ping = PingService(com: com);
 
-  final res = prov.services.request(fields: [prov.services.getServices]);
+  final ms = await ping.ping.request(fields: [ping.ping.msServer]).values.first;
+  final us = await ping.ping.request(fields: [ping.ping.usServer]).values.first;
+  final sec =
+      await ping.ping.request(fields: [ping.ping.secServer]).values.first;
 
-  final res2 = res.values.first;
+  await Future<void>.delayed(const Duration(seconds: 1));
 
-  print('Res2: ${await res2}');
+  print('ms(${ms.value}): $ms');
+  print('us(${us.value}): $us');
+  print('sec(${sec.value}): $sec');
 }
