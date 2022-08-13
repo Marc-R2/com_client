@@ -1,33 +1,36 @@
+import 'dart:async';
+
 import 'package:com/com_server.dart';
 
 import 'service/provider/service_provider.dart';
 
 void main(List<String> arguments) async {
-  final myService = Service(name: 'client', tasks: []);
+  final comSocket = ComSocket.fromIP(ip: '0.0.0.0', port: 9002);
 
-  final connect = Connect(type: 'client', service: myService);
+  await comSocket.init();
 
-  final com = ComDeviceClient.custom(
-    ip: '0.0.0.0',
-    port: 8001,
-    socketPort: 9001,
-    connect: connect,
+  await comSocket.connectClient();
+
+  final ping = PingService(com: comSocket);
+
+  // Repeat task() every second
+  var i = 0;
+  final timer = Timer.periodic(
+    const Duration(milliseconds: 512),
+    (timer) async {
+      await task(ping);
+      i++;
+      if (i >= 100) {
+        timer.cancel();
+      }
+    },
   );
+}
 
-  await com.loadDeviceInfo();
-
-  print(await com.connectClient());
-
-  final ping = PingService(com: com);
-
+Future<void> task(PingService ping) async {
   final ms = await ping.ping.request(fields: [ping.ping.msServer]).values.first;
-  final us = await ping.ping.request(fields: [ping.ping.usServer]).values.first;
-  final sec =
-      await ping.ping.request(fields: [ping.ping.secServer]).values.first;
 
   await Future<void>.delayed(const Duration(seconds: 1));
 
   print('ms(${ms.value}): $ms');
-  print('us(${us.value}): $us');
-  print('sec(${sec.value}): $sec');
 }

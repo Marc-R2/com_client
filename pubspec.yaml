@@ -12,6 +12,7 @@ dependencies:
   com:
     git:
       url: https://github.com/Marc-R2/com.git
+      # ref: connector_for_client_devices
 
 dev_dependencies:
   lints: ^2.0.0

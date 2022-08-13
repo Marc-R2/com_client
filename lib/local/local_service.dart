@@ -5,7 +5,7 @@ abstract class LocalService {
 
   final String service;
 
-  final ComDevice com;
+  final ComSocket com;
 
   Map<String, Future<TaskAnswer>> request({
     required String taskName,

@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "44.0.0"
+    version: "46.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.4.0"
+    version: "4.6.0"
   args:
     dependency: transitive
     description:
@@ -41,7 +41,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: a8ccc104a146f5dfb6fa8822a612bacf8256ea8b
+      resolved-ref: "98637ac5d3b7a52f1ca624f04f04a0c09cae00bd"
       url: "https://github.com/Marc-R2/bit_convert.git"
     source: git
     version: "0.1.3"
@@ -71,10 +71,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3403135f60e05ab5a15e314644627eb32a1a0b64"
+      resolved-ref: "7dd20ee0ffeb974485948cee6b9233d0dc37088e"
       url: "https://github.com/Marc-R2/com.git"
     source: git
-    version: "0.0.1"
+    version: "0.0.2"
   convert:
     dependency: transitive
     description:
@@ -173,6 +173,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  logger:
+    dependency: transitive
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "65e90f90c1bd7471ab3a31e7bbc4c73586607e99"
+      url: "https://github.com/Marc-R2/logger_dart.git"
+    source: git
+    version: "0.1.0"
   logging:
     dependency: transitive
     description:
@@ -201,6 +210,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  network_util:
+    dependency: transitive
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "7cc5abeae0e92a1b3e996afaae24f6586a032daf"
+      url: "https://github.com/Marc-R2/network_util_dart.git"
+    source: git
+    version: "0.1.1"
   node_preamble:
     dependency: transitive
     description:
