@@ -11,7 +11,7 @@ abstract class LocalService {
     required String taskName,
     required List<String> fields,
     String? origin,
-    int serviceVersion = 0,
+    String serviceVersion = '^',
     String connectType = 'service',
     void Function(TaskAnswer answer)? onComplete,
     Map<String, dynamic> data = const <String, dynamic>{},

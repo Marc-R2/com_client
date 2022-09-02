@@ -15,7 +15,7 @@ abstract class LocalTask {
   Map<String, Future<TaskAnswer>> request({
     required List<LocalField> fields,
     String? origin,
-    int serviceVersion = 0,
+    String serviceVersion = '^',
     String connectType = 'service',
     void Function(TaskAnswer answer)? onComplete,
     Map<String, dynamic> data = const <String, dynamic>{},
