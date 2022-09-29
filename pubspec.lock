@@ -69,11 +69,9 @@ packages:
   com:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "5376ae67c33d4a711bc42989c7856be6197e56a9"
-      url: "https://github.com/Marc-R2/com.git"
-    source: git
+      path: "../com"
+      relative: true
+    source: path
     version: "0.0.2"
   convert:
     dependency: transitive

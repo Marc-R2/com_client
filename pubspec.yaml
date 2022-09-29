@@ -10,8 +10,9 @@ environment:
 
 dependencies:
   com:
-    git:
-      url: https://github.com/Marc-R2/com.git
+    path: ../com
+    # git:
+      # url: https://github.com/Marc-R2/com.git
       # ref: stable # connector_for_client_devices
 
 dev_dependencies:

@@ -1,11 +1,12 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:com/com_server.dart';
 
 import 'service/provider/service_provider.dart';
 
 void main(List<String> arguments) async {
-  final comSocket = ComSocket.fromIP(ip: '127.0.0.1', port: 20000);
+  final comSocket = ComSocket.fromIP(ip: 'localhost', port: 20000);
 
   // await comSocket.init();
 
@@ -18,9 +19,9 @@ void main(List<String> arguments) async {
 
   final ping = PingService(com: comSocket);
 
-  // await task(ping);
+  await task(ping);
 
-  // return;
+  return;
   // Repeat task() every second
   var i = 0;
   Timer.periodic(
@@ -28,15 +29,19 @@ void main(List<String> arguments) async {
     (timer) async {
       await task(ping);
       i++;
-      if (i >= 100) {
-        timer.cancel();
-      }
+      if (i >= 512) timer.cancel();
     },
   );
 }
 
 Future<void> task(PingService ping) async {
-  final ms = await ping.ping.request(fields: [ping.ping.msServer]).values.first;
+  final ms = await ping.ping
+      .request(
+        fields: [ping.ping.wait],
+        data: {'wait': Random().nextInt(4096 * 2)},
+      )
+      .values
+      .first;
 
   await Future<void>.delayed(const Duration(seconds: 1));
 
