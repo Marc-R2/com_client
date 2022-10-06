@@ -12,7 +12,7 @@ abstract class LocalTask {
 
   List<LocalField> get fields;
 
-  Map<String, Future<TaskAnswer>> request({
+  TaskRequest request({
     required List<LocalField> fields,
     String? origin,
     String serviceVersion = '^',

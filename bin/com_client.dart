@@ -35,7 +35,7 @@ void main(List<String> arguments) async {
 }
 
 Future<void> task(PingService ping) async {
-  final ms = await ping.ping
+  /*final ms = await ping.ping
       .request(
         fields: [ping.ping.wait],
         data: {'wait': Random().nextInt(4096 * 2)},
@@ -45,5 +45,5 @@ Future<void> task(PingService ping) async {
 
   await Future<void>.delayed(const Duration(seconds: 1));
 
-  print('ms(${ms.value}): $ms');
+  print('ms(${ms.value}): $ms');*/
 }
