@@ -6,7 +6,7 @@ import 'package:com/com_server.dart';
 import 'service/provider/service_provider.dart';
 
 void main(List<String> arguments) async {
-  final comSocket = ComSocket.fromIP(ip: 'localhost', port: 20000);
+  /*final comSocket = ComSocket.fromIP(ip: 'localhost', port: 20000);
 
   // await comSocket.init();
 
@@ -45,5 +45,5 @@ Future<void> task(PingService ping) async {
 
   await Future<void>.delayed(const Duration(seconds: 1));
 
-  print('ms(${ms.value}): $ms');*/
+  print('ms(${ms.value}): $ms');*/*/
 }
