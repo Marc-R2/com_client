@@ -65,7 +65,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   com:
     dependency: "direct main"
     description:
@@ -79,7 +79,7 @@ packages:
       name: convert
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.2"
+    version: "3.1.1"
   coverage:
     dependency: transitive
     description:
@@ -149,7 +149,7 @@ packages:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1"
+    version: "4.0.2"
   io:
     dependency: transitive
     description:
@@ -171,12 +171,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  logger:
+  log_message:
     dependency: transitive
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "9deadb8bb7fd3b23ed15355c93923621340a838b"
+      resolved-ref: bbe19c79b308c69b0852d5478270563d68058444
       url: "https://github.com/Marc-R2/logger_dart.git"
     source: git
     version: "0.1.0"
@@ -186,7 +186,7 @@ packages:
       name: logging
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.1.0"
   matcher:
     dependency: transitive
     description:
@@ -213,7 +213,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "7cc5abeae0e92a1b3e996afaae24f6586a032daf"
+      resolved-ref: bfef20e493c0985072a7cc989eec5028d7176d7b
       url: "https://github.com/Marc-R2/network_util_dart.git"
     source: git
     version: "0.1.1"
@@ -258,7 +258,7 @@ packages:
       name: pub_semver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   shelf:
     dependency: transitive
     description:
@@ -391,7 +391,7 @@ packages:
       name: watcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   web_socket_channel:
     dependency: transitive
     description:
