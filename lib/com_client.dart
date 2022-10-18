@@ -10,17 +10,18 @@ export 'package:network_util/network_util.dart';
 class ComClient {
   ///
   ComClient(List<NetworkDevice> clients) {
-    clients.map(_registerCom);
+    print(clients);
+    for (final device in clients) {
+      _com[device] = ComSocket.fromIP(ip: device.ip, port: device.port);
+      _registerCom(device);
+    }
   }
 
   Future<void> _registerCom(NetworkDevice device) async {
-    if ((await device.checkConnection()).exists) {
-      final com = ComSocket.fromIP(ip: device.ip, port: device.port);
+    final com = _com[device];
+    if ((await device.checkConnection()).exists && com != null) {
       await com.init();
-      if (com.exists) {
-        await com.connectClient();
-        _com[device] = com;
-      }
+      if (com.exists) await com.connectClient();
     }
   }
 
@@ -29,11 +30,15 @@ class ComClient {
   NetworkDevice? primaryServer;
 
   ComSocket? get com {
+    print(_com);
     final server = primaryServer != null &&
             _com[primaryServer] != null &&
             _com[primaryServer]!.ready
         ? primaryServer
-        : _com.keys.firstWhere((key) => _com[key]!.ready);
+        : _com.keys.firstWhere(
+            (key) => _com[key]!.ready,
+            orElse: () => _com.keys.first,
+          );
 
     return _com[server];
   }
