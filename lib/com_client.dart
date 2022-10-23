@@ -1,11 +1,14 @@
-import 'package:com/com_client.dart';
 import 'package:com_client/com_client.dart';
 
-export 'package:log_message/logger.dart';
-
 export 'package:com/com_client.dart';
-
+export 'package:log_message/logger.dart';
 export 'package:network_util/network_util.dart';
+
+part 'storage/global_data_controller.dart';
+
+part 'storage/global_data.dart';
+
+part 'storage/global_listener.dart';
 
 class ComClient {
   ///
@@ -47,6 +50,7 @@ class ComClient {
     if (com != null) {
       com!.sendRequest(task);
     } else {
+      Message.error(title: 'No Com', text: 'No Com available');
       task.complete('root', Response()..failed(6));
     }
     return task;
@@ -54,9 +58,9 @@ class ComClient {
 
   Future<TaskAnswer> answer(
     Field<dynamic, Task> field, {
-    required Map<String, dynamic> data,
+    Map<String, dynamic>? data,
   }) async {
-    final task = await request(field.getTask(data: data));
+    final task = await request(field.getTask(data: data ?? {}));
     return task.getField(field.name);
   }
 }
