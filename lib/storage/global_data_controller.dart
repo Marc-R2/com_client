@@ -20,12 +20,15 @@ class GlobalDataController {
   }
 
   /// Sets the global [data] for the given [key] and [T].
-  static void setGlobalData<T>(String key, T data) {
+  ///
+  /// To hide the update from listeners, set [notify] to false.
+  static void setGlobalData<T>(String key, T data, {bool notify = true}) {
     _globalData[T] ??= {};
     _globalData[T]![key] = data;
 
+    if (!notify) return;
     _globalListeners[T]?.forEach((listener) {
-      if (listener.key == key) listener.listener(data);
+      if (listener.key == key) (listener as GlobalListener<T>).listener(data);
     });
   }
 

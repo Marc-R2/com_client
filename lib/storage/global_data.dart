@@ -81,7 +81,8 @@ class GlobalData<T> {
   /// Other [GlobalData]s might still listen to the same [key] and will not be
   /// disposed.
   void dispose() {
-    for (final listener in _listeners) {
+    final listeners = List.of(_listeners);
+    for (final listener in listeners) {
       listener.dispose();
     }
   }

@@ -11,16 +11,14 @@ part 'storage/global_data.dart';
 part 'storage/global_listener.dart';
 
 class ComClient {
-  ///
-  ComClient(List<NetworkDevice> clients) {
-    print(clients);
+  static void registerClients(List<NetworkDevice> clients) {
     for (final device in clients) {
       _com[device] = ComSocket.fromIP(ip: device.ip, port: device.port);
       _registerCom(device);
     }
   }
 
-  Future<void> _registerCom(NetworkDevice device) async {
+  static Future<void> _registerCom(NetworkDevice device) async {
     final com = _com[device];
     if ((await device.checkConnection()).exists && com != null) {
       await com.init();
@@ -28,12 +26,11 @@ class ComClient {
     }
   }
 
-  final Map<NetworkDevice, ComSocket> _com = {};
+  static final Map<NetworkDevice, ComSocket> _com = {};
 
-  NetworkDevice? primaryServer;
+  static NetworkDevice? primaryServer;
 
-  ComSocket? get com {
-    print(_com);
+  static ComSocket? get com {
     final server = primaryServer != null &&
             _com[primaryServer] != null &&
             _com[primaryServer]!.ready
@@ -46,7 +43,7 @@ class ComClient {
     return _com[server];
   }
 
-  Future<TaskRequest> request(TaskRequest task) async {
+  static Future<TaskRequest> request(TaskRequest task) async {
     if (com != null) {
       com!.sendRequest(task);
     } else {
@@ -56,7 +53,7 @@ class ComClient {
     return task;
   }
 
-  Future<TaskAnswer> answer(
+  static Future<TaskAnswer> answer(
     Field<dynamic, Task> field, {
     Map<String, dynamic>? data,
   }) async {
