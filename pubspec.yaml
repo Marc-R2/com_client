@@ -13,7 +13,7 @@ dependencies:
     #path: ../com
     git:
        url: https://github.com/Marc-R2/com.git
-       ref: stable # connector_for_client_devices
+       # ref: stable # connector_for_client_devices
   com_auth_service_dart:
     # path: ../com_auth_service_dart
     git:
