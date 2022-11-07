@@ -54,7 +54,7 @@ class ComClient {
   }
 
   static Future<TaskAnswer> answer(
-    Field<dynamic, Task> field, {
+    Field<dynamic> field, {
     Map<String, dynamic>? data,
   }) async {
     final task = await request(field.getTask(data: data ?? {}));
