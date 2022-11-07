@@ -9,25 +9,15 @@ class PublicDBMasterService {
     secureLevel: SecureLevel.none,
   );
 
-  static const create = TaskData(
-    name: 'create',
-    parent: data,
-  );
+  static const create = TaskData(name: 'create', parent: data);
 
-  static const delete = TaskData(
-    name: 'delete',
-    parent: data,
-  );
+  static const insert = TaskData(name: 'insert', parent: data);
 
-  static const update = TaskData(
-    name: 'update',
-    parent: data,
-  );
+  static const delete = TaskData(name: 'delete', parent: data);
 
-  static const select = TaskData(
-    name: 'select',
-    parent: data,
-  );
+  static const update = TaskData(name: 'update', parent: data);
+
+  static const select = TaskData(name: 'select', parent: data);
 }
 
 class PublicCreateDBTask {
