@@ -14,10 +14,6 @@ dependencies:
     git:
        url: https://github.com/Marc-R2/com.git
        # ref: stable # connector_for_client_devices
-  com_auth_service_dart:
-    # path: ../com_auth_service_dart
-    git:
-      url: https://github.com/Marc-R2/com_auth_service_dart.git
 
 dev_dependencies:
   lints: ^2.0.0
