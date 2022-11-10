@@ -33,5 +33,8 @@ class GlobalDataController {
   }
 
   /// Gets the global data for the given [key] and [T].
-  static T getGlobalData<T>(String key) => _globalData[T]![key] as T;
+  static T getGlobalData<T>(String key) {
+    _globalData[T] ??= {};
+    return _globalData[T]![key] as T;
+  }
 }
