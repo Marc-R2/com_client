@@ -50,10 +50,18 @@ class GlobalData<T> {
   ///
   /// This value is stored globally within [GlobalDataController] under the
   /// [key] and all [GlobalListener] that listen to this [key] will be notified.
-  set value(T value) => GlobalDataController.setGlobalData<T>(key, value);
+  set value(T value) => setValue(value);
 
   /// Get the current value of this [GlobalData] instance.
   T get value => GlobalDataController.getGlobalData<T>(key);
+
+  /// Set the current value of this [GlobalData] instance.
+  ///
+  /// This value is stored globally within [GlobalDataController] under the
+  /// [key] and by default all [GlobalListener] that listen to this [key] will
+  /// be notified.
+  void setValue(T value, {bool notify = true}) =>
+      GlobalDataController.setGlobalData<T>(key, value, notify: notify);
 
   /// Listener that listens to changes in this [GlobalData] instance.
   final List<GlobalListener<T>> _listeners = [];
