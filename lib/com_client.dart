@@ -1,6 +1,6 @@
 import 'package:com_client/com_client.dart';
 
-export 'package:com/com_client.dart';
+export 'package:com/com.dart';
 export 'package:log_message/logger.dart';
 export 'package:network_util/network_util.dart';
 

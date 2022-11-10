@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:com/com_server.dart';
+import 'package:com/com.dart';
 
 import 'service/provider/service_provider.dart';
 

@@ -1,4 +1,4 @@
-import 'package:com/com_client.dart';
+import 'package:com/com.dart';
 
 class PublicDBMasterService {
   static const data = ServiceData(
