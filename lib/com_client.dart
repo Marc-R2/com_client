@@ -10,6 +10,8 @@ part 'storage/global_data.dart';
 
 part 'storage/global_listener.dart';
 
+part 'storage/global_joined_listener.dart';
+
 class ComClient {
   static void registerClients(List<NetworkDevice> clients) {
     for (final device in clients) {
